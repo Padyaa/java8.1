@@ -66,7 +66,6 @@ class RadioTest {
         assertEquals(0, radio.getCurrentStation());
     }
 
-
     @Test
     public void shouldSetNextVolume() {
         Radio radio = new Radio();
