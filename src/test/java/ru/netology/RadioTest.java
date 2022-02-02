@@ -21,22 +21,6 @@ class RadioTest {
     }
 
     @Test
-    public void shouldSetNextStation() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(7);
-        radio.setNextStation();
-        assertEquals(8, radio.getCurrentStation());
-    }
-
-    @Test
-    public void shouldSetMaxBoundaryStation() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(9);
-        radio.setNextStation();
-        assertEquals(9, radio.getCurrentStation());
-    }
-
-    @Test
     public void shouldSetPreviousStation() {
         Radio radio = new Radio();
         radio.setCurrentStation(5);
@@ -45,11 +29,27 @@ class RadioTest {
     }
 
     @Test
-    public void shouldSetMinBoundaryStation() {
+    public void shouldSetNextStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(7);
+        radio.setNextStation();
+        assertEquals(8, radio.getCurrentStation());
+    }
+
+    @Test
+    public void shouldSetOverMaxLimitStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(9);
+        radio.setNextStation();
+        assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
+    public void shouldSetOverMinLimitStation() {
         Radio radio = new Radio();
         radio.setCurrentStation(0);
         radio.setPreviousStation();
-        assertEquals(0, radio.getCurrentStation());
+        assertEquals(9, radio.getCurrentStation());
     }
 
     @Test
@@ -78,13 +78,13 @@ class RadioTest {
     @Test
     public void shouldSetPreviousVolume() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(0);
+        radio.setCurrentVolume(3);
         radio.setPreviousVolume();
-        assertEquals(0, radio.getCurrentVolume());
+        assertEquals(2, radio.getCurrentVolume());
     }
 
     @Test
-    public void shouldSetUnderMinVolume() {
+    public void shouldSetOverMinVolume() {
         Radio radio = new Radio();
         radio.setCurrentVolume(-1);
         assertEquals(0, radio.getCurrentVolume());
@@ -108,11 +108,12 @@ class RadioTest {
     @Test
     public void shouldSetMinVolume() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(1);
+        radio.setCurrentVolume(0);
         radio.setPreviousVolume();
         assertEquals(0, radio.getCurrentVolume());
     }
 }
+
 
 
 
