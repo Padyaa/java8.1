@@ -31,9 +31,9 @@ class RadioTest {
     @Test
     public void shouldSetNextStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(7);
+        radio.setCurrentStation(8);
         radio.setNextStation();
-        assertEquals(8, radio.getCurrentStation());
+        assertEquals(9, radio.getCurrentStation());
     }
 
     @Test
@@ -55,14 +55,16 @@ class RadioTest {
     @Test
     public void shouldSetMaxStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(9);
+        radio.setCurrentStation(8);
+        radio.setNextStation();
         assertEquals(9, radio.getCurrentStation());
     }
 
     @Test
     public void shouldSetMinStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(0);
+        radio.setCurrentStation(1);
+        radio.setPreviousStation();
         assertEquals(0, radio.getCurrentStation());
     }
 
