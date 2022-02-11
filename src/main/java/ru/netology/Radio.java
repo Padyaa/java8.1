@@ -22,18 +22,14 @@ public class Radio {
     }
 
     public void setPreviousStation() {
-        if (currentStation >= 0) {
-            this.currentStation = currentStation - 1;
-        }
+        this.currentStation = currentStation - 1;
         if (currentStation < 0) {
             this.currentStation = 9;
         }
     }
 
     public void setNextStation() {
-        if (currentStation <= 9) {
-            this.currentStation = currentStation + 1;
-        }
+        this.currentStation = currentStation + 1;
         if (currentStation > 9) {
             this.currentStation = 0;
         }

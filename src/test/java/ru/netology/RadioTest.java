@@ -23,9 +23,9 @@ class RadioTest {
     @Test
     public void shouldSetPreviousStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(5);
+        radio.setCurrentStation(9);
         radio.setPreviousStation();
-        assertEquals(4, radio.getCurrentStation());
+        assertEquals(8, radio.getCurrentStation());
     }
 
     @Test
