@@ -94,16 +94,16 @@ class RadioTest {
     @Test
     public void shouldSetOverMaxVolume() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(11);
-        assertEquals(10, radio.getCurrentVolume());
+        radio.setCurrentVolume(101);
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
     public void shouldSetMaxVolume() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
         radio.setNextVolume();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
@@ -113,8 +113,13 @@ class RadioTest {
         radio.setPreviousVolume();
         assertEquals(0, radio.getCurrentVolume());
     }
-}
 
+    @Test
+    public void shouldChekParametrs() {
+        Radio radio = new Radio(0,0,9,0,100,0);
+        assertEquals(0, radio.getCurrentStation());
+    }
+}
 
 
 
