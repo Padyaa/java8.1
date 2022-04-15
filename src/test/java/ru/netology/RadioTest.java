@@ -7,6 +7,18 @@ import org.junit.jupiter.api.Test;
 class RadioTest {
 
     @Test
+    public void shouldUseConstructor() {
+        Radio radio = new Radio();
+    }
+
+    @Test
+    public void shouldSetNumberStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(9);
+        assertEquals(9, radio.getCurrentStation());
+    }
+
+    @Test
     public void shouldSetStationForTheLowerLimit() {
         Radio radio = new Radio();
         radio.setCurrentStation(-1);
@@ -116,7 +128,7 @@ class RadioTest {
 
     @Test
     public void shouldChekParametrs() {
-        Radio radio = new Radio(0,0,9,0,100,0);
+        Radio radio = new Radio();
         assertEquals(0, radio.getCurrentStation());
     }
 }
